@@ -1,0 +1,49 @@
+.header {
+  position: relative;
+  /* TODO add responsive height */
+  height: 800px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.header::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(101, 100, 95, 0.35);
+  background: linear-gradient(
+    rgba(101, 100, 96, 0.7) 0%,
+    rgba(101, 100, 96, 0.298) 35%, 
+    rgba(101, 100, 96, 0.298) 45%, 
+    rgba(101, 100, 96, 0.2) 100%
+  )
+}
+
+.bgImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  position: absolute;
+  width: 100%;
+  top: 32.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  color: #fefefe;
+  font-family: 'Dancing Script', cursive;
+  font-size: 6.5rem;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.titleHighlight {
+  font-size: 0.75em;
+}
