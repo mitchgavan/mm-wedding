@@ -3,8 +3,7 @@ import cx from 'classnames';
 import styles from './Panel.module.css'; 
 
 export default function Panel({ children, dark }) {
-  const cxClassNames = cx({
-    [styles.panel]: true,
+  const cxClassNames = cx(styles.panel, {
     [styles.dark]: dark,
   });
 
