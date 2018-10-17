@@ -3,6 +3,11 @@
   padding: 4rem 1rem;
   color: #292929;
   background-color: #ffffff;
-  line-height: 1.75;
+  line-height: 1.5;
   font-size: 1.125rem;
+}
+
+.dark {
+  background-color: #292929;
+  color: #ffffff;
 }
