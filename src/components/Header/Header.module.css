@@ -3,6 +3,7 @@
   height: 100vh;
   text-align: center;
   overflow: hidden;
+  background-color: #47637c;
 }
 
 @media (min-width: 768px) {
@@ -57,7 +58,7 @@
 
 @media (min-width: 768px) {
   .title {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
 }
 
