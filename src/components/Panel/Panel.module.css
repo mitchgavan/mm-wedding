@@ -7,6 +7,10 @@
   font-size: 1.125rem;
 }
 
+.panel p:last-child {
+  margin: 0;
+}
+
 .dark {
   background-color: #292929;
   color: #ffffff;

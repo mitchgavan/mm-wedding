@@ -4,6 +4,7 @@ import Heading from './components/Heading/Heading'
 import Panel from './components/Panel/Panel';
 import './App.css';
 import Countdown from './components/Countdown/Countdown';
+import Form from './components/Form/Form';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
         </Panel>
         <Panel>
           <Heading>RSVP</Heading>
+          <Form name="rsvp" />
         </Panel>
         <Panel>
           <Heading>Places to stay</Heading>
