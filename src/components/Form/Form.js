@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextInput from './TextInput/TextInput';
 import styles from './Form.module.css';
 
 export default class Form extends Component {
@@ -7,14 +8,8 @@ export default class Form extends Component {
 
     return (
       <form name={name} method="POST" netlify className={styles.form}>
-        <div className={styles.field}>
-          <label for="name">Full name</label>
-          <input type="text" name="name" id="name" />
-        </div>
-        <div className={styles.field}>
-          <label for="email">Email </label>
-          <input type="email" name="email" id="email" />
-        </div>
+        <TextInput name="Full name" type="text" />
+        <TextInput name="Email" type="email" />
         <div className={styles.field}>
           <p>Will you be attending?</p>
           <div>
@@ -27,10 +22,7 @@ export default class Form extends Component {
             <label for="attendingNo">No</label>
           </div>
         </div>
-        <div className={styles.field}>
-          <label for="song">Song request</label>
-          <input type="text" name="song" id="song" />
-        </div>
+        <TextInput name="Song request" type="text" />
         <div className={styles.field}>
           <button type="submit">Send RSVP</button>
         </div>
