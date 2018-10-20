@@ -1,0 +1,24 @@
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 1.125rem 2rem;
+  border: 1px solid transparent;
+  border-radius: 100em;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-family: inherit;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #292929;
+  color: #fefefe;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #555;
+}

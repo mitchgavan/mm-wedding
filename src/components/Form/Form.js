@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextInput from './TextInput/TextInput';
 import Heading from '../Heading/Heading';
+import Button from '../Button/Button';
 import styles from './Form.module.css';
 
 export default class Form extends Component {
@@ -31,8 +32,8 @@ export default class Form extends Component {
           <TextInput name="Full name" type="text" required />
           <TextInput name="Song request" type="text" />
           <TextInput name="Dietary requirements" type="text" />
-          <div className={styles.field}>
-            <button type="submit">Send RSVP</button>
+          <div className={styles.buttonContainer}>
+            <Button type="submit">Send RSVP</Button>
           </div>
         </form>
       </div>
