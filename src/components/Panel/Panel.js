@@ -10,7 +10,9 @@ export default function Panel({ children, dark, rsvp }) {
 
   return (
     <div className={cxClassNames}>
-      {children}
+      <div className={styles.content}>
+        {children}
+      </div>
     </div>
   )
 }

@@ -1,10 +1,15 @@
 .panel {
+  position: relative;
   text-align: center;
   padding: 6rem 1rem;
   color: #292929;
   background-color: #ffffff;
   line-height: 1.5;
   font-size: 1.125rem;
+}
+
+.content {
+  position: relative;
 }
 
 .panel p {
@@ -20,9 +25,30 @@
 }
 
 .rsvp {
-  padding: 7rem 1rem;
-  background-color: #ccc;
+  padding: 4rem 1rem;
+  background-color: #f5f5f5;
   background-image: url(../../images/grass.jpg);
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.rsvp:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    rgba(101, 100, 96, 0.7) 0%,
+    rgba(101, 100, 96, 0.298) 35%, 
+    rgba(101, 100, 96, 0.298) 45%, 
+    rgba(101, 100, 96, 0.2) 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .rsvp {
+    padding: 8rem 1rem;
+  }
 }
