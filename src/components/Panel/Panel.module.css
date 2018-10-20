@@ -1,14 +1,18 @@
 .panel {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 6rem 1rem;
   color: #292929;
   background-color: #ffffff;
   line-height: 1.5;
   font-size: 1.125rem;
 }
 
+.panel p {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
 .panel p:last-child {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .dark {
