@@ -1,0 +1,34 @@
+.field {
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+.label {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.4375rem;
+    margin: 0 0 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #cacaca;
+    border-radius: 0;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    transition: border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.input:focus {
+  border-color: currentColor;
+}

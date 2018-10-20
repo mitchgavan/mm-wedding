@@ -16,8 +16,6 @@ export default class Form extends Component {
           method="POST" 
           netlify 
         >
-          <TextInput name="Full name" type="text" />
-          <TextInput name="Email" type="email" />
           <div className={styles.field}>
             <p>Will you be attending?</p>
             <div>
@@ -30,7 +28,9 @@ export default class Form extends Component {
               <label for="attendingNo">No</label>
             </div>
           </div>
+          <TextInput name="Full name" type="text" required />
           <TextInput name="Song request" type="text" />
+          <TextInput name="Dietary requirements" type="text" />
           <div className={styles.field}>
             <button type="submit">Send RSVP</button>
           </div>

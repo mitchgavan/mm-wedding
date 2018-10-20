@@ -9,8 +9,8 @@ export default class TextInput extends Component {
 
     return (
       <div className={styles.field}>
-        <label htmlFor={sanitizedName}>{name}</label>
-        <input type={type} name={sanitizedName} id={sanitizedName} />
+        <label className={styles.label} htmlFor={sanitizedName}>{name}</label>
+        <input className={styles.input} type={type} name={sanitizedName} id={sanitizedName} />
       </div>
     )
   }
