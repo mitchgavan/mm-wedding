@@ -21,8 +21,7 @@ class App extends Component {
         <Panel dark>
           <Countdown />
         </Panel>
-        <Panel>
-          <Heading>RSVP</Heading>
+        <Panel rsvp>
           <Form name="rsvp" />
         </Panel>
         <Panel>
