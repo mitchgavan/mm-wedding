@@ -4,6 +4,8 @@ import Heading from './components/Heading/Heading'
 import Panel from './components/Panel/Panel';
 import './App.css';
 import Countdown from './components/Countdown/Countdown';
+import Form from './components/Form/Form';
+import ImagePanel from './components/ImagePanel/ImagePanel';
 
 class App extends Component {
   render() {
@@ -20,8 +22,9 @@ class App extends Component {
         <Panel dark>
           <Countdown />
         </Panel>
-        <Panel>
-          <Heading>RSVP</Heading>
+        <ImagePanel />
+        <Panel rsvp>
+          <Form name="rsvp" />
         </Panel>
         <Panel>
           <Heading>Places to stay</Heading>
