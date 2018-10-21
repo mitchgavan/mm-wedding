@@ -3,7 +3,7 @@ import styles from './Select.module.css';
 
 export default class Select extends Component {
   render() {
-    const { name, label, onChange, options, value } = this.props;
+    const { name, label, onChange, options, value, required } = this.props;
 
     return (
       <div className={styles.field}>
@@ -14,7 +14,7 @@ export default class Select extends Component {
           name={name}
           value={value}
           onChange={onChange}
-          required
+          required={required}
         >
           {options.map(text => (
             <option key={text} value={text}>{text}</option>

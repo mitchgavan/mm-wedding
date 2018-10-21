@@ -66,6 +66,7 @@ export default class Form extends Component {
                 onChange={this.handleChange}
                 options={['Yes', 'No']}
                 value={attendance}
+                required
               />
               <TextInput
                 name="Full name"

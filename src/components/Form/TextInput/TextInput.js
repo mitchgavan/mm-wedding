@@ -4,7 +4,7 @@ import styles from './TextInput.module.css';
 
 export default class TextInput extends Component {
   render() {
-    const { name, onChange, type } = this.props;
+    const { name, onChange, type, required } = this.props;
     const sanitizedName = camelCase(name);
 
     return (
@@ -16,6 +16,7 @@ export default class TextInput extends Component {
           name={sanitizedName}
           id={sanitizedName}
           onChange={onChange}
+          required={required}
         />
       </div>
     )
