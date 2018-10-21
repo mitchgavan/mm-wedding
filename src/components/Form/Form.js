@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from './TextInput/TextInput';
+import Select from './Select/Select';
 import Heading from '../Heading/Heading';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
@@ -17,18 +18,12 @@ export default class Form extends Component {
           method="POST" 
           netlify 
         >
-          <div className={styles.field}>
-            <p>Will you be attending?</p>
-            <div>
-              <input type="radio" id="attendingYes"
-              name="attending" value="email" />
-              <label for="attendingYes">Yes</label>
-
-              <input type="radio" id="attendingNo"
-              name="attending" value="phone" />
-              <label for="attendingNo">No</label>
-            </div>
-          </div>
+          <Select
+            name="attendance"
+            label="Will you be attending?"
+            options={['Yes', 'No']}
+            value=""
+          />
           <TextInput name="Full name" type="text" required />
           <TextInput name="Song request" type="text" />
           <TextInput name="Dietary requirements" type="text" />
