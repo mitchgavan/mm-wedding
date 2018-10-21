@@ -17,34 +17,43 @@ export default class Form extends Component {
     dietary: '',
     fullName: '',
     song: '',
-    sent: false
+    sent: false,
+    loading: false,
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
+    this.setState({ loading: true });
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'rsvp', ...this.state })
     })
       .then(() => {
-        this.setState({ sent: true });
+        this.setState({ 
+          sent: true,
+          loading: false,
+        });
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        this.setState({ loading: false });
+        console.log(error);
+      });
 
     e.preventDefault();
   };
 
   render() {
-    const { attendance, fullName, song, dietary, sent } = this.state;
+    const { attendance, fullName, song, dietary, sent, loading } = this.state;
 
     return (
       <div className={styles.container}>
         <Heading>RSVP</Heading>
         {sent
           ? (
-            <div>Thankyou, your RSVP has been sent to us.</div>
+            <p>Thankyou, your RSVP has been sent to us.</p>
           )
           : (
             <form
@@ -78,7 +87,9 @@ export default class Form extends Component {
                 value={dietary}
               />
               <div className={styles.buttonContainer}>
-                <Button type="submit">Send RSVP</Button>
+                <Button type="submit" disabled={loading}>
+                  {loading ? 'Sending...' : 'Send RSVP'}
+                </Button>
               </div>
             </form>
           )}

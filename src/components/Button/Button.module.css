@@ -19,6 +19,11 @@
 }
 
 .button:hover,
-.button:focus {
+.button:focus,
+.button[disabled] {
   background-color: #555;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
 }
