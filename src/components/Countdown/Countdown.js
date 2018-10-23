@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 function getTimeRemaining(endtime) {
   const total = Date.parse(endtime) - Date.parse(new Date());
-  const seconds = Math.floor( (total/1000) % 60 );
-  const minutes = Math.floor( (total/1000/60) % 60 );
-  const hours = Math.floor( (total/(1000*60*60)) % 24 );
-  const days = Math.floor( total/(1000*60*60*24) );
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000/60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
   return {
     total,
@@ -18,22 +18,23 @@ function getTimeRemaining(endtime) {
 
 export default class Countdown extends Component {
   state = {
-    timeRemaining: getTimeRemaining(new Date(2019, 3, 16)),
+    timeRemaining: 0,
   }
 
-  updateTime = () => {
+  tick = () => {
     this.setState({
       timeRemaining: getTimeRemaining(new Date(2019, 3, 16)),
     });
-
-    if (this.state.timeRemaining.total >= 1000) {
-      window.requestAnimationFrame(this.updateTime)
-    }
-    
   }
 
   componentDidMount() {
-    this.updateTime();
+    this.tick();
+  }
+
+  componentDidUpdate() {
+    if (this.state.timeRemaining.total >= 1000) {
+      window.requestAnimationFrame(this.tick)
+    }
   }
 
   render() {
