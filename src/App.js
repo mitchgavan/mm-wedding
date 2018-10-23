@@ -19,11 +19,11 @@ class App extends Component {
           </p>
           <p>458 Maroondah Hwy, Healesville</p>
         </Panel>
-        <Panel dark>
+        <Panel type="countdown" dark>
           <Countdown />
         </Panel>
         <ImagePanel />
-        <Panel rsvp>
+        <Panel type="rsvp">
           <Form name="rsvp" />
         </Panel>
         <Panel>

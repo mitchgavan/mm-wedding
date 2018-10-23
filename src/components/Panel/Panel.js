@@ -2,10 +2,11 @@ import React from 'react';
 import cx from 'classnames';
 import styles from './Panel.module.css'; 
 
-export default function Panel({ children, dark, rsvp }) {
+export default function Panel({ children, dark, type }) {
   const cxClassNames = cx(styles.panel, {
     [styles.dark]: dark,
-    [styles.rsvp]: rsvp,
+    [styles.rsvp]: type === 'rsvp',
+    [styles.countdown]: type === 'countdown',
   });
 
   return (

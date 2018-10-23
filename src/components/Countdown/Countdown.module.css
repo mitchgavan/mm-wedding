@@ -1,0 +1,18 @@
+.countdown {
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  padding: 1rem;
+}
+
+.number {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.unit {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
