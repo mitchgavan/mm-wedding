@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './Countdown.module.css';
 
 function getTimeRemaining(endtime) {
   const total = Date.parse(endtime) - Date.parse(new Date());
@@ -41,11 +42,15 @@ export default class Countdown extends Component {
     const { timeRemaining } = this.state;
   
     return (
-      <div>
-        <div>{timeRemaining.days}</div>
-        <div>{timeRemaining.hours}</div>
-        <div>{timeRemaining.minutes}</div>
-        <div>{timeRemaining.seconds}</div>
+      <div className={styles.countdown}>
+        {Object.entries(timeRemaining)
+          .filter(([key]) => key !== 'total')
+          .map(([key, value]) => (
+            <div className={styles.block}>
+              <div className={styles.number}>{value}</div>
+              <div className={styles.unit}>{key}</div>
+            </div>
+          ))}
       </div>
     )
   }
