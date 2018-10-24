@@ -24,7 +24,7 @@ export default class Countdown extends Component {
 
   tick = () => {
     this.setState({
-      timeRemaining: getTimeRemaining(new Date(2019, 3, 16)),
+      timeRemaining: getTimeRemaining(new Date(2019, 3, 16, 16, 0, 0)),
     });
   }
 
@@ -46,7 +46,7 @@ export default class Countdown extends Component {
         {Object.entries(timeRemaining)
           .filter(([key]) => key !== 'total')
           .map(([key, value]) => (
-            <div className={styles.block}>
+            <div key={key} className={styles.block}>
               <div className={styles.number}>{value}</div>
               <div className={styles.unit}>{key}</div>
             </div>
