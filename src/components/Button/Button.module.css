@@ -3,7 +3,7 @@
   vertical-align: middle;
   margin: 0;
   padding: 1.125rem 2rem;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 100em;
   transition: background-color 0.25s ease-out, color 0.25s ease-out;
   font-family: inherit;
@@ -16,6 +16,7 @@
   cursor: pointer;
   background-color: #292929;
   color: #fefefe;
+  outline: 0;
 }
 
 .button:hover,
@@ -26,4 +27,20 @@
 
 .button[disabled] {
   cursor: not-allowed;
+}
+
+.outlined {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.outlined:hover,
+.outlined:focus,
+.outlined[disabled] {
+  background-color: #fff;
+  color: #292929;
+}
+
+.small {
+  padding: 0.75rem 1.5rem;
 }
