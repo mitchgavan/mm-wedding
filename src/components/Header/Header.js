@@ -1,10 +1,12 @@
 import React from 'react';
+import TopBar from './TopBar/TopBar';
 import hero from '../../images/vineyard-hero.jpg'
 import styles from './Header.module.css'; 
 
 export default function Header() {
   return (
     <div className={styles.header}>
+      <TopBar />
       <img src={hero} alt="" className={styles.bgImage} />
       <header className={styles.content}>
         <h1 className={styles.subTitle}>
