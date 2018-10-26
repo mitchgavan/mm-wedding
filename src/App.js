@@ -23,7 +23,7 @@ class App extends Component {
           <Countdown />
         </Panel>
         <ImagePanel />
-        <Panel type="rsvp">
+        <Panel id="rsvp" type="rsvp">
           <Form name="rsvp" />
         </Panel>
         <Panel>
