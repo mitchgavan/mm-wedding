@@ -12,12 +12,12 @@
 }
 
 .divider {
-  padding: 3rem;
+  margin: 3rem;
 }
 
 @media (min-width: 768px) {
   .divider {
-    padding: 4rem;
+    margin: 4rem;
   }
 }
 
