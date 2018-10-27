@@ -4,9 +4,15 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  padding: 1.75rem 2rem;
+  padding: 1rem;
   color: #fff;
   font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .topbar {
+    padding: 1.75rem 2rem;
+  }
 }
 
 .link {

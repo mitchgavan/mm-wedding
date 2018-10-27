@@ -1,11 +1,17 @@
 .panel {
   position: relative;
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 4rem 1rem;
   color: #292929;
   background-color: #ffffff;
   line-height: 1.5;
   font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .panel {
+    padding: 6rem 1rem;
+  }
 }
 
 .content {
@@ -54,5 +60,5 @@
 }
 
 .countdown {
-  padding: 2rem 1rem;
+  padding: 1rem;
 }
