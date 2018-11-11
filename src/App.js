@@ -6,6 +6,7 @@ import './App.css';
 import Countdown from './components/Countdown/Countdown';
 import Form from './components/Form/Form';
 import ImagePanel from './components/ImagePanel/ImagePanel';
+import Registry from './components/Registry/Registry';
 
 class App extends Component {
   render() {
@@ -28,6 +29,10 @@ class App extends Component {
         </Panel>
         <Panel>
           <Heading>Places to stay</Heading>
+        </Panel>
+        <Panel>
+          <Heading>Wishing Well</Heading>
+          <Registry />
         </Panel>
       </div>
     );
