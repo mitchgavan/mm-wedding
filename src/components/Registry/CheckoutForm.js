@@ -5,7 +5,7 @@ import styles from './CheckoutForm.module.css';
 class CheckoutForm extends Component {
   submit = async () => {
     console.log('submit');
-    let {token} = await this.props.stripe.createToken({name: "Name"});
+    // let {token} = await this.props.stripe.createToken({name: "Name"});
     // let response = await fetch("/charge", {
     //   method: "POST",
     //   headers: {"Content-Type": "text/plain"},
@@ -13,6 +13,10 @@ class CheckoutForm extends Component {
     // });
   
     // if (response.ok) console.log("Purchase Complete!")
+
+    fetch('/.netlify/functions/hello')
+      .then(response => response.json())
+      .then(json => console.log(json.msg));
   }
 
   render() {

@@ -30,7 +30,7 @@ class App extends Component {
         <Panel>
           <Heading>Places to stay</Heading>
         </Panel>
-        <Panel>
+        <Panel dark>
           <Heading>Wishing Well</Heading>
           <Registry />
         </Panel>
