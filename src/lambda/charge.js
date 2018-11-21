@@ -12,7 +12,8 @@ exports.handler = async (event, context) => {
   let { status } = await stripe.charges.create({
     amount: 100,
     currency: 'aud',
-    description: 'An example charge',
+    description: 'Wedding Gift',
+    receipt_email: data.email,
     source: data.token
   });
 

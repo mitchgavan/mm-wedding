@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import axios from 'axios';
+import Button from '../Button/Button';
 import styles from './CheckoutForm.module.css';
+import TextInput from '../Form/TextInput/TextInput';
 
 class CheckoutForm extends Component {
   state = {
     status: 'default',
+    fullName: '',
+    emailAddress: '',
   };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   submit = async () => {
     // let { token } = await this.props.stripe.createToken({ name: 'Name' });
@@ -14,6 +20,7 @@ class CheckoutForm extends Component {
     try {
       await axios.post('/.netlify/functions/charge', {
         token: 'tok_au',
+        email: this.state.emailAddress,
       });
       this.setState({ status: 'complete' });
     } catch (err) {
@@ -22,15 +29,32 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    const { status } = this.state;
+    const { emailAddress, fullName, status } = this.state;
   
     if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
 
     return (
-      <div className="checkout">
+      <div className={styles.checkout}>
         <p>Would you like to complete the purchase?</p>
-        <CardElement />
-        <button onClick={this.submit}>Send</button>
+        <label>
+          Card details
+          <CardElement />
+        </label>
+        <TextInput
+          name="Full name"
+          onChange={this.handleChange}
+          type="text"
+          value={fullName}
+          required
+        />
+        <TextInput
+          name="Email address"
+          onChange={this.handleChange}
+          type="text"
+          value={emailAddress}
+          required
+        />
+        <Button onClick={this.submit}>Send Gift</Button>
         {status === 'error' && <div>Sorry, something went wrong.</div>}
       </div>
     )
