@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 import styles from './CheckoutForm.module.css';
 import TextInput from '../Form/TextInput/TextInput';
 
+const centsToDollars = cents => cents * 100;
+
 class CheckoutForm extends Component {
   state = {
     status: 'default',
@@ -15,12 +17,15 @@ class CheckoutForm extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   submit = async () => {
+    const { amount, emailAddress: email } = this.state;
+
     // let { token } = await this.props.stripe.createToken({ name: 'Name' });
 
     try {
       await axios.post('/.netlify/functions/charge', {
+        amount: centsToDollars(amount),
         token: 'tok_au',
-        email: this.state.emailAddress,
+        email,
       });
       this.setState({ status: 'complete' });
     } catch (err) {
@@ -29,7 +34,7 @@ class CheckoutForm extends Component {
   }
 
   render() {
-    const { emailAddress, fullName, status } = this.state;
+    const { amount, emailAddress, fullName, status } = this.state;
   
     if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
 
@@ -40,6 +45,13 @@ class CheckoutForm extends Component {
           Card details
           <CardElement />
         </label>
+        <TextInput
+          name="Amount"
+          onChange={this.handleChange}
+          type="text"
+          value={amount}
+          required
+        />
         <TextInput
           name="Full name"
           onChange={this.handleChange}

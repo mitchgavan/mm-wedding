@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
   const data = JSON.parse(event.body);
 
   let { status } = await stripe.charges.create({
-    amount: 100,
+    amount: parseInt(data.amount),
     currency: 'aud',
     description: 'Wedding Gift',
     receipt_email: data.email,
