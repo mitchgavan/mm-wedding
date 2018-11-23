@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import styles from './CheckoutForm.module.css';
 import TextInput from '../Form/TextInput/TextInput';
 
-const centsToDollars = cents => cents * 100;
+const dollarsToCents = amount => amount * 100;
 
 class CheckoutForm extends Component {
   state = {
@@ -23,7 +23,7 @@ class CheckoutForm extends Component {
 
     try {
       await axios.post('/.netlify/functions/charge', {
-        amount: centsToDollars(amount),
+        amount: dollarsToCents(amount),
         token: 'tok_au',
         email,
       });

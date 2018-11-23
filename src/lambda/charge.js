@@ -1,4 +1,5 @@
 require('dotenv').config()
+const uuidv4 = require('uuid/v4');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event, context) => {
@@ -9,16 +10,33 @@ exports.handler = async (event, context) => {
 
   const data = JSON.parse(event.body);
 
-  let { status } = await stripe.charges.create({
-    amount: parseInt(data.amount),
-    currency: 'aud',
-    description: 'Wedding Gift',
-    receipt_email: data.email,
-    source: data.token
-  });
+  if (!data.email || !data.token || !data.amount) {
+    return {
+      statusCode: 500,
+      body: 'Some required fields were not supplied.',
+    }
+  }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ status })
-  };
+  try {
+    let { status } = await stripe.charges.create({
+      amount: parseInt(data.amount),
+      currency: 'aud',
+      description: 'Wedding Gift',
+      receipt_email: data.email,
+      source: data.token,
+      metadata: {
+        order_id: uuidv4(),
+      },
+    });
+  
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ status })
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: 'Something went wrong.',
+    }
+  }
 };
