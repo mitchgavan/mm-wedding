@@ -15,6 +15,6 @@ export default class Button extends Component {
       <button className={buttonClasses} {...props}>
         {children}
       </button>
-    )
+    );
   }
 }

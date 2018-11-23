@@ -9,16 +9,18 @@ export default class TextInput extends Component {
 
     return (
       <div className={styles.field}>
-        <label className={styles.label} htmlFor={sanitizedName}>{name}</label>
+        <label className={styles.label} htmlFor={sanitizedName}>
+          {name}
+        </label>
         <input
           className={styles.input}
-          type={type} 
+          type={type}
           name={sanitizedName}
           id={sanitizedName}
           onChange={onChange}
           required={required}
         />
       </div>
-    )
+    );
   }
 }

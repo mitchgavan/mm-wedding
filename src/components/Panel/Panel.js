@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import styles from './Panel.module.css'; 
+import styles from './Panel.module.css';
 
 export default function Panel({ children, dark, id, type }) {
   const cxClassNames = cx(styles.panel, {
@@ -11,9 +11,7 @@ export default function Panel({ children, dark, id, type }) {
 
   return (
     <div id={id} className={cxClassNames}>
-      <div className={styles.content}>
-        {children}
-      </div>
+      <div className={styles.content}>{children}</div>
     </div>
-  )
+  );
 }

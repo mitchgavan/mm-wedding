@@ -31,11 +31,11 @@ class CheckoutForm extends Component {
     } catch (err) {
       this.setState({ status: 'error' });
     }
-  }
+  };
 
   render() {
     const { amount, emailAddress, fullName, status } = this.state;
-  
+
     if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
 
     return (
@@ -69,7 +69,7 @@ class CheckoutForm extends Component {
         <Button onClick={this.submit}>Send Gift</Button>
         {status === 'error' && <div>Sorry, something went wrong.</div>}
       </div>
-    )
+    );
   }
 }
 

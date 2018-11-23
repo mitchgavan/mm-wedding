@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const uuidv4 = require('uuid/v4');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 500,
       body: 'Some required fields were not supplied.',
-    }
+    };
   }
 
   try {
@@ -28,15 +28,15 @@ exports.handler = async (event, context) => {
         order_id: uuidv4(),
       },
     });
-  
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ status })
+      body: JSON.stringify({ status }),
     };
   } catch (err) {
     return {
       statusCode: 500,
       body: 'Something went wrong.',
-    }
+    };
   }
 };

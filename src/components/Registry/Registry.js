@@ -13,6 +13,6 @@ export default class Registry extends Component {
           </Elements>
         </div>
       </StripeProvider>
-    )
+    );
   }
 }
