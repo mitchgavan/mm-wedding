@@ -4,6 +4,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 import styles from './CheckoutForm.module.css';
 import TextInput from '../Form/TextInput/TextInput';
+import AlertMessage from '../AlertMessage/AlertMessage';
 
 const dollarsToCents = amount => amount * 100;
 
@@ -12,6 +13,7 @@ class CheckoutForm extends Component {
     status: 'default',
     fullName: '',
     emailAddress: '',
+    errorMessage: '',
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -29,18 +31,21 @@ class CheckoutForm extends Component {
       });
       this.setState({ status: 'complete' });
     } catch (err) {
-      this.setState({ status: 'error' });
+      this.setState({
+        status: 'error',
+        errorMessage:
+          err.response.data.message || 'Sorry, something went wrong.',
+      });
     }
   };
 
   render() {
-    const { amount, emailAddress, fullName, status } = this.state;
+    const { amount, emailAddress, errorMessage, fullName, status } = this.state;
 
     if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
 
     return (
       <div className={styles.checkout}>
-        <p>Would you like to complete the purchase?</p>
         <label>
           Card details
           <CardElement />
@@ -67,7 +72,9 @@ class CheckoutForm extends Component {
           required
         />
         <Button onClick={this.submit}>Send Gift</Button>
-        {status === 'error' && <div>Sorry, something went wrong.</div>}
+        {status === 'error' && (
+          <AlertMessage type="error">{errorMessage}</AlertMessage>
+        )}
       </div>
     );
   }

@@ -13,7 +13,9 @@ exports.handler = async (event, context) => {
   if (!data.email || !data.token || !data.amount) {
     return {
       statusCode: 400,
-      body: 'Some required fields were not supplied.',
+      body: JSON.stringify({
+        message: 'Some required fields were not supplied.',
+      }),
     };
   }
 
@@ -36,7 +38,9 @@ exports.handler = async (event, context) => {
   } catch (err) {
     return {
       statusCode: 400,
-      body: `Error: ${err.message}`,
+      body: JSON.stringify({
+        message: `Error: ${err.message}`,
+      }),
     };
   }
 };
