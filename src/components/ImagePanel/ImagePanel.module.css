@@ -1,14 +1,21 @@
 .imagePanel {
-  padding: 1rem 0.5rem;
+  padding: 4rem 0.5rem 1rem;
   max-width: 1300px;
   margin: 0 auto;
   text-align: center;
+  color: #292929;
+  line-height: 1.5;
+  font-size: 1.125rem;
 }
 
 @media (min-width: 768px) {
   .imagePanel {
-    padding: 2.5rem 1rem;
+    padding: 5rem 1rem 2.5rem;
   }
+}
+
+.imagePanel p {
+  margin-bottom: 2.5rem;
 }
 
 .divider {
