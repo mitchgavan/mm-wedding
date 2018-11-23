@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
 
   if (!data.email || !data.token || !data.amount) {
     return {
-      statusCode: 500,
+      statusCode: 400,
       body: 'Some required fields were not supplied.',
     };
   }
@@ -35,8 +35,8 @@ exports.handler = async (event, context) => {
     };
   } catch (err) {
     return {
-      statusCode: 500,
-      body: 'Something went wrong.',
+      statusCode: 400,
+      body: `Error: ${err.message}`,
     };
   }
 };
