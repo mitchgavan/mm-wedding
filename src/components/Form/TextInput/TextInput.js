@@ -3,8 +3,20 @@ import { camelCase } from 'lodash';
 import styles from './TextInput.module.css';
 
 export default class TextInput extends Component {
+  static defaultProps = {
+    isValid: true,
+  };
+
   render() {
-    const { name, onChange, type, required } = this.props;
+    const {
+      errorMessage,
+      isValid,
+      name,
+      onChange,
+      type,
+      required,
+    } = this.props;
+
     const sanitizedName = camelCase(name);
 
     return (
@@ -20,6 +32,7 @@ export default class TextInput extends Component {
           onChange={onChange}
           required={required}
         />
+        {!isValid && <div className={styles.error}>{errorMessage}</div>}
       </div>
     );
   }

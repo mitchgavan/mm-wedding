@@ -20,12 +20,12 @@
 }
 
 .button:hover,
-.button:focus,
-.button[disabled] {
+.button:focus {
   background-color: #555;
 }
 
 .button[disabled] {
+  background-color: #ccc;
   cursor: not-allowed;
 }
 
