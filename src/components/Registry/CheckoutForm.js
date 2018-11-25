@@ -19,7 +19,7 @@ class CheckoutForm extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   submit = async () => {
-    const { amount, emailAddress: email } = this.state;
+    const { amount, fullName, emailAddress: email } = this.state;
 
     // let { token } = await this.props.stripe.createToken({ name: 'Name' });
 
@@ -28,6 +28,7 @@ class CheckoutForm extends Component {
         amount: dollarsToCents(amount),
         token: 'tok_au',
         email,
+        from: fullName,
       });
       this.setState({ status: 'complete' });
     } catch (err) {
