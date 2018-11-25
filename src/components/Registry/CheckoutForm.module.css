@@ -3,3 +3,9 @@
   margin: 0 auto;
   text-align: left;
 }
+
+.validation {
+  color: #f44336;
+  font-size: 0.75rem;
+  font-weight: 700;
+}

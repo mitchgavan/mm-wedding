@@ -18,10 +18,11 @@ const validate = {
 class CheckoutForm extends Component {
   state = {
     amount: '',
+    cardError: null,
     status: 'default',
     fullName: '',
     emailAddress: '',
-    errorMessage: '',
+    errorMessage: null,
     invalidFields: ['amount', 'fullName', 'emailAddress'],
     hasBeenValidated: false,
   };
@@ -46,9 +47,16 @@ class CheckoutForm extends Component {
     }
   };
 
-  submit = async () => {
+  handleCardChange = e => {
+    if (e.error) {
+      this.setState({ cardError: e.error.message });
+    }
+  };
+
+  submit = () => {
     const {
       amount,
+      cardError,
       fullName,
       hasBeenValidated,
       emailAddress,
@@ -59,32 +67,40 @@ class CheckoutForm extends Component {
       this.setState({ hasBeenValidated: true });
     }
 
-    if (invalidFields.length) {
-      return;
-    }
+    if (invalidFields.length || cardError) return;
 
-    // let { token } = await this.props.stripe.createToken({ name: 'Name' });
+    this.setState({ status: 'loading' });
 
-    try {
-      await axios.post('/.netlify/functions/charge', {
-        amount: dollarsToCents(amount),
-        token: 'tok_au',
-        email: emailAddress,
-        from: fullName,
+    this.props.stripe
+      .createToken({ name: fullName })
+      .then(({ token }) => {
+        axios
+          .post('/.netlify/functions/charge', {
+            amount: dollarsToCents(amount),
+            token: token.id, // 'tok_au',
+            email: emailAddress,
+            from: fullName,
+          })
+          .then(() => {
+            this.setState({ status: 'complete' });
+          })
+          .catch(err => {
+            this.setState({
+              status: 'error',
+              errorMessage:
+                err.response.data.message || 'Sorry, something went wrong.',
+            });
+          });
+      })
+      .catch(err => {
+        this.setState({ status: 'default' });
       });
-      this.setState({ status: 'complete' });
-    } catch (err) {
-      this.setState({
-        status: 'error',
-        errorMessage:
-          err.response.data.message || 'Sorry, something went wrong.',
-      });
-    }
   };
 
   render() {
     const {
       amount,
+      cardError,
       emailAddress,
       errorMessage,
       fullName,
@@ -99,8 +115,10 @@ class CheckoutForm extends Component {
       <div className={styles.checkout}>
         <label>
           Card details
-          <CardElement />
+          <CardElement onChange={this.handleCardChange} />
+          <div className={styles.validation}>{cardError}</div>
         </label>
+
         <TextInput
           name="Amount"
           onChange={this.handleChange}
@@ -127,7 +145,12 @@ class CheckoutForm extends Component {
         />
         <Button
           onClick={this.submit}
-          disabled={hasBeenValidated && invalidFields.length > 0}
+          disabled={
+            status === 'loading' ||
+            cardError ||
+            (hasBeenValidated && invalidFields.length > 0)
+          }
+          isLoading={status === 'loading'}
         >
           Send Gift
         </Button>
