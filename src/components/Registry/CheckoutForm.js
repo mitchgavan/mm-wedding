@@ -113,12 +113,13 @@ class CheckoutForm extends Component {
 
     return (
       <div className={styles.checkout}>
-        <label>
-          Card details
-          <CardElement onChange={this.handleCardChange} />
-          <div className={styles.validation}>{cardError}</div>
-        </label>
-
+        <div className={styles.creditCardField}>
+          <label>
+            Card details
+            <CardElement onChange={this.handleCardChange} />
+            <div className={styles.validation}>{cardError}</div>
+          </label>
+        </div>
         <TextInput
           name="Amount"
           onChange={this.handleChange}

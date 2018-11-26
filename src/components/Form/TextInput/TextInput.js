@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { camelCase } from 'lodash';
+import camelCase from 'lodash/camelCase';
+import cx from 'classnames';
 import styles from './TextInput.module.css';
 
 export default class TextInput extends Component {
@@ -15,6 +16,7 @@ export default class TextInput extends Component {
       onChange,
       type,
       required,
+      alternative,
     } = this.props;
 
     const sanitizedName = camelCase(name);
@@ -25,7 +27,7 @@ export default class TextInput extends Component {
           {name}
         </label>
         <input
-          className={styles.input}
+          className={cx(styles.input, { [styles.alternative]: alternative })}
           type={type}
           name={sanitizedName}
           id={sanitizedName}

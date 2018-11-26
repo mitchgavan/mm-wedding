@@ -6,6 +6,7 @@
 .label {
   display: inline-block;
   padding-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
 .input {
@@ -14,9 +15,9 @@
   width: 100%;
   height: 2.4375rem;
   margin: 0 0 0.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #cacaca;
-  border-radius: 0;
+  border-radius: 3px;
   background-color: transparent;
   font-family: inherit;
   font-size: 1rem;
@@ -37,4 +38,11 @@
   color: #f44336;
   font-size: 0.75rem;
   font-weight: 700;
+}
+
+.alternative {
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
+    rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+  border: 0;
+  background-color: #fff;
 }
