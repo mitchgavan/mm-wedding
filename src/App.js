@@ -33,7 +33,7 @@ class App extends Component {
           <Heading>Places to stay</Heading>
         </Panel>
         <Panel dark>
-          <Heading>Wishing Well</Heading>
+          <Heading>Gifts</Heading>
           <Registry />
         </Panel>
       </div>

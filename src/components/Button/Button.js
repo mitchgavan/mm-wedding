@@ -13,7 +13,7 @@ export default class Button extends Component {
 
     return (
       <button className={buttonClasses} {...props}>
-        {isLoading ? 'Loading...' : children}
+        {isLoading ? 'Processing...' : children}
       </button>
     );
   }

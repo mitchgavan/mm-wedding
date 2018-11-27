@@ -1,6 +1,6 @@
-.checkout {
+.checkoutForm {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2rem auto;
   border-radius: 3px;
   padding: 1rem;
   background-color: #fff;
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 768px) {
-  .checkout {
+  .checkoutForm {
     padding: 2rem 2.5rem;
   }
 }

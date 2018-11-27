@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import styles from './CheckoutForm.module.css';
 import TextInput from '../Form/TextInput/TextInput';
 import AlertMessage from '../AlertMessage/AlertMessage';
+import { ReactComponent as StripeLogo } from '../../svg/powered-by-stripe.svg';
 
 const dollarsToCents = amount => amount * 100;
 
@@ -112,52 +113,63 @@ class CheckoutForm extends Component {
     if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
 
     return (
-      <div className={styles.checkout}>
-        <div className={styles.creditCardField}>
-          <label>
-            Card details
-            <CardElement onChange={this.handleCardChange} />
-            <div className={styles.validation}>{cardError}</div>
-          </label>
+      <div>
+        <div className={styles.checkoutForm}>
+          <div className={styles.creditCardField}>
+            <label>
+              Card details
+              <CardElement onChange={this.handleCardChange} />
+              <div className={styles.validation}>{cardError}</div>
+            </label>
+          </div>
+          <TextInput
+            name="Amount"
+            onChange={this.handleChange}
+            type="text"
+            value={amount}
+            isValid={!invalidFields.includes('amount') || !hasBeenValidated}
+            errorMessage="Please enter a valid amount."
+          />
+          <TextInput
+            name="Full name"
+            onChange={this.handleChange}
+            type="text"
+            value={fullName}
+            isValid={!invalidFields.includes('fullName') || !hasBeenValidated}
+            errorMessage="Please let us know who this gift is from."
+          />
+          <TextInput
+            name="Email address"
+            onChange={this.handleChange}
+            type="text"
+            value={emailAddress}
+            isValid={
+              !invalidFields.includes('emailAddress') || !hasBeenValidated
+            }
+            errorMessage="Please enter a valid email address."
+          />
+          <Button
+            onClick={this.submit}
+            disabled={
+              status === 'loading' ||
+              cardError ||
+              (hasBeenValidated && invalidFields.length > 0)
+            }
+            isLoading={status === 'loading'}
+          >
+            Send Gift
+          </Button>
+          {status === 'error' && (
+            <AlertMessage type="error">{errorMessage}</AlertMessage>
+          )}
         </div>
-        <TextInput
-          name="Amount"
-          onChange={this.handleChange}
-          type="text"
-          value={amount}
-          isValid={!invalidFields.includes('amount') || !hasBeenValidated}
-          errorMessage="Please enter a valid amount."
-        />
-        <TextInput
-          name="Full name"
-          onChange={this.handleChange}
-          type="text"
-          value={fullName}
-          isValid={!invalidFields.includes('fullName') || !hasBeenValidated}
-          errorMessage="Please let us know who this gift is from."
-        />
-        <TextInput
-          name="Email address"
-          onChange={this.handleChange}
-          type="text"
-          value={emailAddress}
-          isValid={!invalidFields.includes('emailAddress') || !hasBeenValidated}
-          errorMessage="Please enter a valid email address."
-        />
-        <Button
-          onClick={this.submit}
-          disabled={
-            status === 'loading' ||
-            cardError ||
-            (hasBeenValidated && invalidFields.length > 0)
-          }
-          isLoading={status === 'loading'}
+        <a
+          href="https://stripe.com/au"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Send Gift
-        </Button>
-        {status === 'error' && (
-          <AlertMessage type="error">{errorMessage}</AlertMessage>
-        )}
+          <StripeLogo />
+        </a>
       </div>
     );
   }
