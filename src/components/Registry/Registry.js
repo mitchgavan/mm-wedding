@@ -6,11 +6,11 @@ import styles from './Registry.module.css';
 export default class Registry extends Component {
   render() {
     return (
-      <StripeProvider apiKey="pk_test_TbaT0lpvmSdTKqV2LOsRk4vG">
+      <StripeProvider apiKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}>
         <div>
           <p>
             Your presence is your present, but if you would like to contribute
-            to our honeymoon in Bali you can do so below, via the secure payment
+            to our honeymoon in Bali you can do so below. via the secure payment
             form below.
           </p>
           <Elements>

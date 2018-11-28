@@ -51,6 +51,8 @@ class CheckoutForm extends Component {
   handleCardChange = e => {
     if (e.error) {
       this.setState({ cardError: e.error.message });
+    } else {
+      this.setState({ cardError: null });
     }
   };
 
@@ -114,6 +116,7 @@ class CheckoutForm extends Component {
 
     return (
       <div>
+        <p>Select a gift and enter how much you would like to chip in.</p>
         <div className={styles.checkoutForm}>
           <div className={styles.creditCardField}>
             <label>
