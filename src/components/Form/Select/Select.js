@@ -17,10 +17,12 @@ export default class Select extends Component {
           required={required}
         >
           {options.map(text => (
-            <option key={text} value={text}>{text}</option>
+            <option key={text} value={text}>
+              {text}
+            </option>
           ))}
         </select>
       </div>
-    )
+    );
   }
 }

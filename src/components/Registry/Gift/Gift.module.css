@@ -1,0 +1,22 @@
+.gift {
+  background-color: #fff;
+  width: 100%;
+}
+
+.gift.selected {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0.5rem;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 600;
+}

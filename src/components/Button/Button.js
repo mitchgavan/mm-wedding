@@ -4,7 +4,7 @@ import styles from './Button.module.css';
 
 export default class Button extends Component {
   render() {
-    const { children, outlined, small, ...props } = this.props;
+    const { children, isLoading, outlined, small, ...props } = this.props;
 
     const buttonClasses = cx(styles.button, {
       [styles.outlined]: outlined,
@@ -13,8 +13,8 @@ export default class Button extends Component {
 
     return (
       <button className={buttonClasses} {...props}>
-        {children}
+        {isLoading ? 'Processing...' : children}
       </button>
-    )
+    );
   }
 }

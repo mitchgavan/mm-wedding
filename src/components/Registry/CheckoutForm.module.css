@@ -1,0 +1,31 @@
+.checkoutForm {
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
+    rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
+}
+
+@media (min-width: 768px) {
+  .checkoutForm {
+    padding: 2rem 2.5rem;
+  }
+}
+
+.validation {
+  color: #f44336;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.creditCardField {
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+.giftConfirmation {
+  font-weight: 600;
+  padding: 0.75rem 0 1.5rem;
+}
