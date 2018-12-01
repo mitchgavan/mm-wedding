@@ -19,6 +19,12 @@ const GiftSchema = new Schema(
       type: Number,
       required: true,
     },
+    message: {
+      type: String,
+    },
+    gift: {
+      type: String,
+    },
   },
   {
     timestamps: true,

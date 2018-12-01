@@ -41,8 +41,9 @@ exports.handler = (event, context, callback) => {
         amount: parseInt(data.amount) / 100,
         email: data.email,
         from: data.from,
-        orderId,
+        gift: data.gift,
         message: data.message,
+        orderId,
       };
 
       connectToDatabase().then(() => {

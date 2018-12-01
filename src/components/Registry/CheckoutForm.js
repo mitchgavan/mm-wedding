@@ -21,7 +21,8 @@ class CheckoutForm extends Component {
   state = {
     amount: '',
     cardError: null,
-    gift: null,
+    gift: '',
+    giftMessage: '',
     status: 'default',
     fullName: '',
     emailAddress: '',
@@ -67,6 +68,8 @@ class CheckoutForm extends Component {
       amount,
       cardError,
       fullName,
+      gift,
+      giftMessage,
       hasBeenValidated,
       emailAddress,
       invalidFields,
@@ -89,6 +92,8 @@ class CheckoutForm extends Component {
             token: token.id, // 'tok_au',
             email: emailAddress,
             from: fullName,
+            message: giftMessage,
+            gift,
           })
           .then(() => {
             this.setState({ status: 'complete' });
