@@ -6,7 +6,8 @@
 .label {
   display: inline-block;
   padding-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .input {

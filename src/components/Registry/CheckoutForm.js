@@ -128,6 +128,10 @@ class CheckoutForm extends Component {
 
     return (
       <div>
+        <p>
+          Your presence is our present, but if you'd like to contribute to our
+          honeymoon in Bali you can do so via the secure payment form below.
+        </p>
         <p className={styles.intro}>
           Select a gift and enter how much you would like to chip in.
         </p>
