@@ -12,6 +12,7 @@ export default class TextInput extends Component {
     const {
       errorMessage,
       isValid,
+      isCurrency,
       name,
       onChange,
       type,
@@ -23,8 +24,14 @@ export default class TextInput extends Component {
 
     const sanitizedName = camelCase(name);
 
+    const inputClassNames = cx(styles.input, {
+      [styles.alternative]: alternative,
+      [styles.currency]: isCurrency,
+    });
+
     return (
       <div className={styles.field}>
+        {isCurrency && <span className={styles.currencySymbol}>$</span>}
         <label className={styles.label} htmlFor={sanitizedName}>
           {label || name}
         </label>
@@ -39,7 +46,7 @@ export default class TextInput extends Component {
           />
         ) : (
           <input
-            className={cx(styles.input, { [styles.alternative]: alternative })}
+            className={inputClassNames}
             type={type}
             name={sanitizedName}
             id={sanitizedName}
@@ -48,7 +55,6 @@ export default class TextInput extends Component {
             placeholder={placeholder}
           />
         )}
-
         {!isValid && <div className={styles.error}>{errorMessage}</div>}
       </div>
     );

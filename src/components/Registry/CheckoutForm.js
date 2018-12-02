@@ -144,6 +144,7 @@ class CheckoutForm extends Component {
             value={amount}
             isValid={!invalidFields.includes('amount') || !hasBeenValidated}
             errorMessage="Please enter a valid amount."
+            isCurrency
           />
           <TextInput
             name="Gift message"
