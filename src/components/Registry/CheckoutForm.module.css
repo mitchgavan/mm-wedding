@@ -1,3 +1,7 @@
+.intro {
+  padding: 1rem 0;
+}
+
 .checkoutForm {
   max-width: 600px;
   margin: 2rem auto;
@@ -21,11 +25,23 @@
 }
 
 .creditCardField {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1rem;
   text-align: left;
 }
 
 .giftConfirmation {
   font-weight: 600;
-  padding: 0.75rem 0 1.5rem;
+  padding: 0.75rem 0;
+}
+
+.formHeading {
+  margin: 1.5rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.submitButton {
+  margin-top: 1rem;
 }

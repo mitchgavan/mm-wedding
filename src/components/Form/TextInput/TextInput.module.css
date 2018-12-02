@@ -1,12 +1,14 @@
 .field {
-  margin: 0 0 1.5rem;
+  position: relative;
+  margin: 0 0 1rem;
   text-align: left;
 }
 
 .label {
   display: inline-block;
   padding-bottom: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .input {
@@ -34,6 +36,10 @@
   border-color: currentColor;
 }
 
+textarea.input {
+  height: 5rem;
+}
+
 .error {
   color: #f44336;
   font-size: 0.75rem;
@@ -45,4 +51,17 @@
     rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   border: 0;
   background-color: #fff;
+}
+
+.currency {
+  padding-left: 1.313rem;
+}
+
+.currencySymbol {
+  position: absolute;
+  top: 2.5rem;
+  left: 0.625rem;
+  font-weight: 600;
+  color: #999;
+  font-size: 1.068rem;
 }

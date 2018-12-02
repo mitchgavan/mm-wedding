@@ -12,28 +12,49 @@ export default class TextInput extends Component {
     const {
       errorMessage,
       isValid,
+      isCurrency,
       name,
       onChange,
       type,
       required,
       alternative,
+      label,
+      placeholder,
     } = this.props;
 
     const sanitizedName = camelCase(name);
 
+    const inputClassNames = cx(styles.input, {
+      [styles.alternative]: alternative,
+      [styles.currency]: isCurrency,
+    });
+
     return (
       <div className={styles.field}>
+        {isCurrency && <span className={styles.currencySymbol}>$</span>}
         <label className={styles.label} htmlFor={sanitizedName}>
-          {name}
+          {label || name}
         </label>
-        <input
-          className={cx(styles.input, { [styles.alternative]: alternative })}
-          type={type}
-          name={sanitizedName}
-          id={sanitizedName}
-          onChange={onChange}
-          required={required}
-        />
+        {type === 'textarea' ? (
+          <textarea
+            className={cx(styles.input, { [styles.alternative]: alternative })}
+            name={sanitizedName}
+            id={sanitizedName}
+            onChange={onChange}
+            required={required}
+            placeholder={placeholder}
+          />
+        ) : (
+          <input
+            className={inputClassNames}
+            type={type}
+            name={sanitizedName}
+            id={sanitizedName}
+            onChange={onChange}
+            required={required}
+            placeholder={placeholder}
+          />
+        )}
         {!isValid && <div className={styles.error}>{errorMessage}</div>}
       </div>
     );

@@ -21,7 +21,8 @@ class CheckoutForm extends Component {
   state = {
     amount: '',
     cardError: null,
-    gift: null,
+    gift: '',
+    giftMessage: '',
     status: 'default',
     fullName: '',
     emailAddress: '',
@@ -35,7 +36,7 @@ class CheckoutForm extends Component {
 
     this.setState({ [name]: value });
 
-    const isValid = validate[name](value);
+    const isValid = validate[name] ? validate[name](value) : true;
 
     if (!isValid) {
       this.setState(prevState => ({
@@ -67,6 +68,8 @@ class CheckoutForm extends Component {
       amount,
       cardError,
       fullName,
+      gift,
+      giftMessage,
       hasBeenValidated,
       emailAddress,
       invalidFields,
@@ -89,6 +92,8 @@ class CheckoutForm extends Component {
             token: token.id, // 'tok_au',
             email: emailAddress,
             from: fullName,
+            message: giftMessage,
+            gift,
           })
           .then(() => {
             this.setState({ status: 'complete' });
@@ -123,7 +128,13 @@ class CheckoutForm extends Component {
 
     return (
       <div>
-        <p>Select a gift and enter how much you would like to chip in.</p>
+        <p>
+          Your presence is our present, but if you'd like to contribute to our
+          honeymoon in Bali you can do so via the secure payment form below.
+        </p>
+        <p className={styles.intro}>
+          Select a gift and enter how much you would like to chip in.
+        </p>
         <Gifts onGiftSelect={this.handleGiftSelect} selectedGift={gift} />
         <div className={styles.checkoutForm}>
           <TextInput
@@ -133,7 +144,16 @@ class CheckoutForm extends Component {
             value={amount}
             isValid={!invalidFields.includes('amount') || !hasBeenValidated}
             errorMessage="Please enter a valid amount."
+            isCurrency
           />
+          <TextInput
+            name="Gift message"
+            label="Message to the bride & groom"
+            onChange={this.handleChange}
+            type="textarea"
+            value={amount}
+          />
+          <h3 className={styles.formHeading}>Payment Details</h3>
           <div className={styles.creditCardField}>
             <label>
               Card details
@@ -142,7 +162,17 @@ class CheckoutForm extends Component {
             </label>
           </div>
           <TextInput
+            name="Full name"
+            label="Name on card"
+            onChange={this.handleChange}
+            type="text"
+            value={fullName}
+            isValid={!invalidFields.includes('fullName') || !hasBeenValidated}
+            errorMessage="Please enter the cardholder's name"
+          />
+          <TextInput
             name="Email address"
+            label="Email address (for receipt)"
             onChange={this.handleChange}
             type="text"
             value={emailAddress}
@@ -151,20 +181,14 @@ class CheckoutForm extends Component {
             }
             errorMessage="Please enter a valid email address."
           />
-          <TextInput
-            name="Full name"
-            onChange={this.handleChange}
-            type="text"
-            value={fullName}
-            isValid={!invalidFields.includes('fullName') || !hasBeenValidated}
-            errorMessage="Please let us know who this gift is from."
-          />
+
           {gift && amount && (
             <div className={styles.giftConfirmation}>
               Your gift is ${amount} towards {gift}
             </div>
           )}
           <Button
+            className={styles.submitButton}
             onClick={this.submit}
             disabled={
               status === 'loading' ||
