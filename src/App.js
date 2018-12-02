@@ -7,6 +7,7 @@ import Countdown from './components/Countdown/Countdown';
 import Form from './components/Form/Form';
 import ImagePanel from './components/ImagePanel/ImagePanel';
 import Registry from './components/Registry/Registry';
+import Footer from './components/Footer/Footer';
 
 class App extends Component {
   render() {
@@ -36,6 +37,7 @@ class App extends Component {
           <Heading>A note on gifts</Heading>
           <Registry />
         </Panel>
+        <Footer />
       </div>
     );
   }
