@@ -14,10 +14,6 @@
   }
 }
 
-.imagePanel p {
-  margin-bottom: 2.5rem;
-}
-
 .divider {
   margin: 3rem;
 }
@@ -48,5 +44,22 @@
   .imagePanelScroll div {
     flex: 0 0 33%;
     padding: 0 1rem;
+  }
+}
+
+.subHeading {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  font-size: 1.375rem;
+}
+
+.text {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .text {
+    margin: 1.5rem auto 3rem;
   }
 }
