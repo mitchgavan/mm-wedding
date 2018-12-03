@@ -8,6 +8,7 @@ import TextInput from '../Form/TextInput/TextInput';
 import AlertMessage from '../AlertMessage/AlertMessage';
 import Gifts from './Gifts/Gifts';
 import { ReactComponent as StripeLogo } from '../../svg/powered-by-stripe.svg';
+import { ReactComponent as FlowerDivider } from '../../svg/flower-divider.svg';
 
 const dollarsToCents = amount => amount * 100;
 
@@ -124,7 +125,13 @@ class CheckoutForm extends Component {
       status,
     } = this.state;
 
-    if (this.state.status === 'complete') return <h1>Purchase Complete</h1>;
+    if (this.state.status === 'complete')
+      return (
+        <div className={styles.checkoutForm}>
+          <p>Your gift has been sent! Thankyou for your generosity.</p>
+          <FlowerDivider className={styles.flowerDivider} />
+        </div>
+      );
 
     return (
       <div>
