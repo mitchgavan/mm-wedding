@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TextInput from './TextInput/TextInput';
 import Select from './Select/Select';
-import Heading from '../Heading/Heading';
 import Button from '../Button/Button';
 import styles from './Form.module.css';
 
@@ -50,11 +49,14 @@ export default class Form extends Component {
 
     return (
       <div className={styles.container}>
-        <Heading>RSVP</Heading>
+        <h2 className={styles.heading}>RSVP</h2>
         {sent ? (
           <p>Thankyou, your RSVP has been sent to us.</p>
         ) : (
           <form className={styles.form} onSubmit={this.handleSubmit}>
+            <p className={styles.subHeading}>
+              Please RSVP by February 1st, 2019
+            </p>
             <Select
               name="attendance"
               label="Will you be attending?"
