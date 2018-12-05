@@ -8,6 +8,7 @@ import Form from './components/Form/Form';
 import ImagePanel from './components/ImagePanel/ImagePanel';
 import Registry from './components/Registry/Registry';
 import Footer from './components/Footer/Footer';
+import Accommodation from './components/Accommodation/Accommodation';
 
 class App extends Component {
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
         </Panel>
         <Panel>
           <Heading>Places to stay</Heading>
-          <p>Coming soon...</p>
+          <Accommodation />
         </Panel>
         <Panel dark>
           <Heading>A note on gifts</Heading>

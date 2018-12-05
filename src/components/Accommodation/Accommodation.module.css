@@ -1,0 +1,58 @@
+.options {
+  max-width: 1300px;
+  margin: 1rem auto 0;
+}
+
+@media (min-width: 768px) {
+  .options {
+    display: flex;
+    margin: 2rem auto 0;
+  }
+}
+
+.option {
+  padding: 0 1rem 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .option {
+    flex: 1 1 33.3333%;
+  }
+}
+
+.name {
+  font-weight: 600;
+  padding: 1rem 0 0.5rem;
+}
+
+.address {
+  font-size: 0.875rem;
+  margin: 0 0 0.875rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0.125rem;
+  color: #888;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: 0.2s color;
+}
+
+.link:hover,
+.link:focus {
+  color: #292929;
+}
+
+.link svg {
+  width: 20px;
+  fill: #888;
+  transition: fill 0.2s;
+}
+
+.link:hover svg,
+.link:focus svg {
+  fill: #292929;
+}
