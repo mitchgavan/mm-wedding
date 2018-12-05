@@ -215,6 +215,7 @@ class CheckoutForm extends Component {
           href="https://stripe.com/au"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Powered by Stripe"
         >
           <StripeLogo />
         </a>
