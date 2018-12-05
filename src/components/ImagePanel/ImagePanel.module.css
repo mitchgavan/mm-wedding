@@ -48,18 +48,14 @@
 }
 
 .subHeading {
-  margin: 0 0 1rem;
-  font-weight: 600;
-  font-size: 1.375rem;
-}
-
-.text {
-  max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 0 2rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
 }
 
 @media (min-width: 768px) {
-  .text {
+  .subHeading {
     margin: 1.5rem auto 3rem;
   }
 }
