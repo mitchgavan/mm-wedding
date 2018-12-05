@@ -39,7 +39,6 @@
   font-size: 0.875rem;
   text-decoration: none;
   transition: 0.2s color;
-  /* border-bottom: 1px solid currentColor; */
 }
 
 .link:hover,
