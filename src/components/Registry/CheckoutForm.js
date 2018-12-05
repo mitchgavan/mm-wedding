@@ -15,7 +15,7 @@ const dollarsToCents = amount => amount * 100;
 const validate = {
   amount: val => isNumber(parseInt(val)) && val > 0,
   emailAddress: val => /\S+@\S+\.\S+/.test(val),
-  fullName: val => val.length > 1,
+  nameOnCard: val => val.length > 1,
 };
 
 class CheckoutForm extends Component {
@@ -25,10 +25,10 @@ class CheckoutForm extends Component {
     gift: '',
     giftMessage: '',
     status: 'default',
-    fullName: '',
+    nameOnCard: '',
     emailAddress: '',
     errorMessage: null,
-    invalidFields: ['amount', 'fullName', 'emailAddress'],
+    invalidFields: ['amount', 'nameOnCard', 'emailAddress'],
     hasBeenValidated: false,
   };
 
@@ -68,7 +68,7 @@ class CheckoutForm extends Component {
     const {
       amount,
       cardError,
-      fullName,
+      nameOnCard,
       gift,
       giftMessage,
       hasBeenValidated,
@@ -85,14 +85,14 @@ class CheckoutForm extends Component {
     this.setState({ status: 'loading' });
 
     this.props.stripe
-      .createToken({ name: fullName })
+      .createToken({ name: nameOnCard })
       .then(({ token }) => {
         axios
           .post('/.netlify/functions/charge', {
             amount: dollarsToCents(amount),
             token: token.id, // 'tok_au',
             email: emailAddress,
-            from: fullName,
+            from: nameOnCard,
             message: giftMessage,
             gift,
           })
@@ -118,7 +118,7 @@ class CheckoutForm extends Component {
       cardError,
       emailAddress,
       errorMessage,
-      fullName,
+      nameOnCard,
       gift,
       hasBeenValidated,
       invalidFields,
@@ -169,12 +169,11 @@ class CheckoutForm extends Component {
             </label>
           </div>
           <TextInput
-            name="Full name"
-            label="Name on card"
+            name="Name on card"
             onChange={this.handleChange}
             type="text"
-            value={fullName}
-            isValid={!invalidFields.includes('fullName') || !hasBeenValidated}
+            value={nameOnCard}
+            isValid={!invalidFields.includes('nameOnCard') || !hasBeenValidated}
             errorMessage="Please enter the cardholder's name"
           />
           <TextInput
