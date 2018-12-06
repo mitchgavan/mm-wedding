@@ -67,6 +67,7 @@ export default class Form extends Component {
             />
             <TextInput
               name="Full name"
+              label="Name(s)"
               onChange={this.handleChange}
               type="text"
               value={fullName}
