@@ -150,7 +150,7 @@ class CheckoutForm extends Component {
             type="text"
             value={amount}
             isValid={!invalidFields.includes('amount') || !hasBeenValidated}
-            errorMessage="Please enter a valid amount."
+            errorMessage="Please enter the amount of money you would like to contribute towards this gift."
             isCurrency
           />
           <TextInput
@@ -174,7 +174,7 @@ class CheckoutForm extends Component {
             type="text"
             value={nameOnCard}
             isValid={!invalidFields.includes('nameOnCard') || !hasBeenValidated}
-            errorMessage="Please enter the cardholder's name"
+            errorMessage="Please enter the cardholder's name."
           />
           <TextInput
             name="Email address"
