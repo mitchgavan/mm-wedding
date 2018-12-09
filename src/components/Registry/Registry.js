@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
-import styles from './Registry.module.css';
 
 export default class Registry extends Component {
   render() {
