@@ -37,6 +37,7 @@
   background-image: url(../../images/grass.jpg);
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
 }
 
 .rsvp:before {
