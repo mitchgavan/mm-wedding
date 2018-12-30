@@ -20,7 +20,7 @@ class App extends Component {
           <p>
             The ceremony and reception will be held at{' '}
             <strong>Boat O'Craigo</strong> winery on the{' '}
-            <strong>16th of March 2018</strong>.
+            <strong>16th of March 2019</strong>.
           </p>
           <p>458 Maroondah Hwy, Healesville</p>
         </Panel>

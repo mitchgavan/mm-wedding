@@ -13,7 +13,7 @@ export default function Header() {
         <h2 className={styles.title}>
           Mitch <span className={styles.titleHighlight}>&</span> Melissa
         </h2>
-        <p className={styles.date}>16/03/2018</p>
+        <p className={styles.date}>16/03/2019</p>
       </header>
     </div>
   );
