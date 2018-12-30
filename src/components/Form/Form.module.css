@@ -32,5 +32,9 @@
 
 .subHeading {
   font-weight: 300;
+}
+
+.disclaimer {
+  font-size: 0.813rem;
   padding-bottom: 0.75rem;
 }

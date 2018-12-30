@@ -57,6 +57,11 @@ export default class Form extends Component {
             <p className={styles.subHeading}>
               Please RSVP by February 1st, 2019
             </p>
+            <p className={styles.disclaimer}>
+              As much as we would like to invite all the children of our
+              friends, it is only possible to accommodate the children of close
+              family.
+            </p>
             <Select
               name="attendance"
               label="Will you be attending?"
