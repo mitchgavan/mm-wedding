@@ -24,7 +24,7 @@ export default class Countdown extends Component {
 
   tick = () => {
     this.setState({
-      timeRemaining: getTimeRemaining(new Date(2019, 3, 16, 16, 0, 0)),
+      timeRemaining: getTimeRemaining('2019-03-16 16:00:00 GMT+1000'),
     });
   };
 
