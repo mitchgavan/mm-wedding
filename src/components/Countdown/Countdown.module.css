@@ -16,3 +16,9 @@
   font-size: 0.75rem;
   text-transform: uppercase;
 }
+
+.complete {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem;
+}
