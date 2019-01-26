@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './Countdown.module.css';
 
 function getTimeRemaining(endtime) {
-  const total = Date.parse(endtime) - Date.parse(new Date());
+  const total = Date.parse(new Date(endtime)) - Date.parse(new Date());
   const seconds = Math.floor((total / 1000) % 60);
   const minutes = Math.floor((total / 1000 / 60) % 60);
   const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
@@ -24,7 +24,7 @@ export default class Countdown extends Component {
 
   tick = () => {
     this.setState({
-      timeRemaining: getTimeRemaining('2019-03-16 16:00:00 GMT+1000'),
+      timeRemaining: getTimeRemaining('March 16, 2019 16:00:00'),
     });
   };
 
