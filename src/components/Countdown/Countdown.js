@@ -41,8 +41,10 @@ export default class Countdown extends Component {
   render() {
     const { timeRemaining } = this.state;
 
+    if (timeRemaining.total < 1) {
+      return (
         <div className={styles.countdown}>
-          <div className={styles.complete}>The countdown is over!</div>
+          <div className={styles.complete}>The countdown is over.</div>
         </div>
       );
     }
