@@ -10,10 +10,10 @@ const hotels = [
       'https://www.tripadvisor.com.au/Hotel_Review-g552181-d2386523-Reviews-RACV_Healesville_Country_Club-Healesville_Yarra_Valley_Victoria.html',
   },
   {
-    name: 'Sanctuary House Resort Motel',
+    name: 'Grand Hotel',
     address: 'Healesville',
     url:
-      'https://www.tripadvisor.com.au/Hotel_Review-g552181-d324361-Reviews-Sanctuary_House_Resort_Motel-Healesville_Yarra_Valley_Victoria.html',
+      'https://www.tripadvisor.com.au/Hotel_Review-g552181-d631609-Reviews-Healesville_Grand_Hotel-Healesville_Yarra_Valley_Victoria.html',
   },
   {
     name: 'Yarra Gables Motel',
